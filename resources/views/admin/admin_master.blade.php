@@ -138,7 +138,7 @@
 
         <script src="{{asset('admin/assets/js/pages/dashboard.init.js')}}"></script>
 
-        <!-- <script src="{{asset('admin/assets/js/app.js')}}"></script>App js -->
+       <!-- <script src="{{asset('admin/assets/js/app.js')}}"></script>-->
         
     </body>
 

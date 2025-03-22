@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\user;
 
 class ProfileController extends Controller
 {
@@ -28,9 +29,28 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+
+
+
+
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+//image upload
+        $id = Auth::user()->id;
+        $info =User::find($id); 
+        if($request->file('image')){
+            $image = $request->file('image');
+            $imageUrl= date('YmdHi').$image->getClientOriginalName();
+            $image->Move(public_path('upload/admin'),$imageUrl);
+            $info['image'] = $imageUrl;
+        } 
+        $info->save();
+        $request->user()->save();
+
+
+
 
         $request->user()->save();
 
