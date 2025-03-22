@@ -29,7 +29,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+          $alertMessage =array(
+            'bildirim'=>'Login Success!!',
+            'alert-type'=> 'success'
+        );
+
+        return redirect()->intended(RouteServiceProvider::HOME)->with($alertMessage);
     }
 
     /**
@@ -43,6 +48,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+$alertMessage =array(
+            'bildirim'=>'Logout Success!!',
+            'alert-type'=> 'info'
+        );
+
+        return redirect('/login')->with($alertMessage);
     }
 }

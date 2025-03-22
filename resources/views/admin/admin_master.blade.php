@@ -26,7 +26,9 @@
         <link href="{{asset('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{asset('admin/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
-
+    <!-- bildirim -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <!-- bildirim -->
     </head>
 
     <body data-topbar="dark">
@@ -139,7 +141,32 @@
         <script src="{{asset('admin/assets/js/pages/dashboard.init.js')}}"></script>
 
        <!-- <script src="{{asset('admin/assets/js/app.js')}}"></script>-->
-        
+              <!-- bildirim -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+            
+           @if(Session::has('bildirim'))
+           var type = "{{ Session::get('alert-type','info') }}"
+           switch(type){
+           case 'info':
+            toastr.info(" {{ Session::get('bildirim') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('bildirim') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('bildirim') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('bildirim') }} ");
+            break; 
+        }
+        @endif 
+    </script>
+    <!-- bildirim -->
     </body>
 
 </html>

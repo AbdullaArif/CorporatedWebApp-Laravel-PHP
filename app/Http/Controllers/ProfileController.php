@@ -47,14 +47,17 @@ class ProfileController extends Controller
             $info['image'] = $imageUrl;
         } 
         $info->save();
+
+        $alertMessage =array(
+            'bildirim'=>'Update Success.',
+            'alert-type'=> 'success'
+        );
+
+
         $request->user()->save();
 
-
-
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('status', 'profile-updated')->
+        with($alertMessage);
     }
 
     /**
@@ -74,7 +77,10 @@ class ProfileController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+               $alertMessage =array(
+            'bildirim'=>'Delete Success!!',
+            'alert-type'=> 'error'
+        );
+        return Redirect::to('/login')->with($alertMessage);
     }
 }

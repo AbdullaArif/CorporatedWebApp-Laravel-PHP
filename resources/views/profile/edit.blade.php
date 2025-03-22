@@ -1,6 +1,12 @@
 @extends('admin.admin_master')
 
 @section('admin')
+<div class="page-content">
+        <div class="container-fluid">
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -34,4 +40,10 @@
         </div>
     </div>
 </x-app-layout>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+
 @endsection

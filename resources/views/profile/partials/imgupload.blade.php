@@ -1,9 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
+
 
                 <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
                     @csrf
@@ -11,7 +8,7 @@
 
                     <!-- end row -->
                     <div class="row mb-3">
-                        <label for="example-text-input" class="col-sm-2">Resim</label>
+                        <label for="example-text-input" class="col-sm-2">Image</label>
                         <div class="col-sm-10">
                             <input type="file" name="image" id="image">
                         </div>
@@ -28,11 +25,6 @@
                     <input type="submit" class="btn btn-info bg-dark" value="Update Image">
                 </form>
 
-
-            </div>
-        </div>
-    </div> <!-- end col -->
-</div>
 
 
 <script type="text/javascript">
