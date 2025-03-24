@@ -50,7 +50,7 @@
                             <!-- Resim Yükleme Alanı -->
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image url</label>
-                                <input type="file" class="form-control" name="image" id="image">
+                                <input type="file" class="form-control" name="image" id="image"     class="form-control">
                             </div>
 
                             <!-- Mevcut Resim -->
@@ -61,10 +61,7 @@
                             </div>
 
                             <!-- Güncelleme Butonu -->
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-dark">Update Image</button>
-                            </div>
-
+                        
                         </form>
                     </div> <!-- card-body -->
                 </div> <!-- card -->
