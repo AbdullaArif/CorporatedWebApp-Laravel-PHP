@@ -11,10 +11,10 @@
                     <div class="card-body">
                         <h4 class="card-title">Banner Edit</h4>
 
-                        <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('banner.update') }}" enctype="multipart/form-data">
                             @csrf
-                            @method('patch')
-
+                            @method('post')
+                                <input type="hidden" name="id" value="{{$homeBanner->id}}">
                             
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
@@ -23,45 +23,37 @@
                             </div>
                                <div class="mb-3">
                                 <label for="title" class="form-label">Sub Title</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->subTittle }}">
+                                <input class="form-control" type="text" name="subTittle" id="title"
+                                    placeholder="Enter sub title" value="{{ $homeBanner->subTittle }}">
                             </div>
                                <div class="mb-3">
                                 <label for="title" class="form-label">Url</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->url }}">
+                                <input class="form-control" type="url" name="url" id="title"
+                                    placeholder="Enter url" value="{{ $homeBanner->url }}">
                             </div>
                                <div class="mb-3">
                                 <label for="title" class="form-label">Video Url</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->videoUrl }}">
+                                <input class="form-control" type="url" name="videoUrl" id="title"
+                                    placeholder="Enter Video Url" value="{{ $homeBanner->videoUrl }}">
                             </div>
-                               <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->Tittle }}">
-                            </div>
-                               <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->Tittle }}">
-                            </div>
+                               
 
-                            <!-- Resim Yükleme Alanı -->
+                            <!-- Image upload area -->
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image url</label>
                                 <input type="file" class="form-control" name="image" id="image"     class="form-control">
                             </div>
 
-                            <!-- Mevcut Resim -->
+                            <!-- indiki image -->
                             <div class="mb-3 text-center">
                                 <img class="rounded-circle img-thumbnail" width="150"
-                                    src="{{ (!empty($homeBanner->image)) ? url('upload/banner/'.$homeBanner->image) : url('upload/emptyimage.jpeg') }}" 
+                                    src="{{ (!empty($homeBanner->image)) ? url($homeBanner->image) : url('upload/emptyimage.jpeg') }}" 
                                     alt="Profile Image" id="showimage">
                             </div>
 
-                            <!-- Güncelleme Butonu -->
-                        
+                            <!-- update Button -->
+                        <input type="submit" class="btn btn-info waves-effect waves-light"
+                        value="Update">
                         </form>
                     </div> <!-- card-body -->
                 </div> <!-- card -->

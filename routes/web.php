@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::controller(BannerController::class)->group(function(){
     Route::get('banner/edit','HomeBanner')->name('banner');
+    Route::post('banner/update','BannerUpdate')->name('banner.update');
 });
 
 Route::get('/dashboard', function () {
