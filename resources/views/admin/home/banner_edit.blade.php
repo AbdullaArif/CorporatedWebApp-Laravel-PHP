@@ -11,15 +11,15 @@
                     <div class="card-body">
                         <h4 class="card-title">Banner Edit</h4>
 
-                        <form method="post" action="{{ route('banner.update') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('banner.update') }}" enctype="multipart/form-data">
                             @csrf
-                            @method('post')
+                            
                                 <input type="hidden" name="id" value="{{$homeBanner->id}}">
                             
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input class="form-control" type="text" name="title" id="title"
-                                    placeholder="Enter title" value="{{ $homeBanner->Tittle }}">
+                                <label for="title" class="form-label">Tittle</label>
+                                <input class="form-control" type="text" name="tittle" id="title"  placeholder="Enter title" value="{{ $homeBanner->tittle }}">
+
                             </div>
                                <div class="mb-3">
                                 <label for="title" class="form-label">Sub Title</label>

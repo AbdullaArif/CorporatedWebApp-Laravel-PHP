@@ -19,18 +19,18 @@ class BannerController extends Controller
 
          if($request->file('image')){
             $image = $request->file('image');
-            $imageUrl= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $imagead= hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             
-            Image::make($image)->resize(636,852)->save('upload/banner/'.$imageUrl); 
+            Image::make($image)->resize(636,852)->save('upload/banner/'.$imagead); 
 
-            $imageSave='upload/banner/'.$imageUrl;
+            $imageSave='upload/banner/'.$imagead;
 
             Banner::findOrFail($bannerId)->update([
                 'tittle'=>$request->tittle,
                 'subTittle'=>$request->subTittle,
                 'url'=>$request->url,
                 'videoUrl'=>$request->videoUrl,
-                'imageurl'=>$imageSave,
+                'imageUrl'=>$imageSave,
             ]);
 
                  $alertMessage =array(
@@ -47,7 +47,7 @@ class BannerController extends Controller
                 'subTittle'=>$request->subTittle,
                 'url'=>$request->url,
                 'videoUrl'=>$request->videoUrl,
-                'imageurl'=>$imageSave,
+                
             ]);
 
                  $alertMessage =array(
