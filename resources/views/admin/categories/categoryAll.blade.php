@@ -50,7 +50,7 @@
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category->categoryName}}</td>
-                                                <td>{{$category->imageUrl}}</td>
+                                                <td><img src="{{asset($category->imageUrl)}}"style="width: 50px; height: 50px;"></td>
                                                 <td>{{$category->description}}</td>
                                             </tr>
                                            @endforeach

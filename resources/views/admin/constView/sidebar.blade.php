@@ -39,7 +39,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('category.all')}}">All Categories</a></li>
-                                    <li><a href="#">Add Category</a></li>
+                                    <li><a href="{{route('category.add')}}">Add Category</a></li>
                                     
                                 </ul>
                             </li>
