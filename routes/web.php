@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\BannerController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 /*
@@ -18,9 +19,15 @@ use App\Http\Controllers\Home\BannerController;
 Route::get('/', function () {
     return view('frontend.index');
 });
-
+//Banner
 Route::controller(BannerController::class)->group(function(){
     Route::get('banner/edit','HomeBanner')->name('banner');
+    Route::post('banner/update','BannerUpdate')->name('banner.update');
+});
+
+//Category
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('category/all','CategoryAll')->name('category.all');
     Route::post('banner/update','BannerUpdate')->name('banner.update');
 });
 
