@@ -46,7 +46,7 @@
                             <!-- indiki image -->
                             <div class="mb-3 text-center">
                                 <img class="rounded-circle img-thumbnail" width="150"
-                                    src="{{(!empty($CategoryEdit->imageUrl))?url($categoryEdit->imageUrl):
+                                    src="{{(!empty($CategoryEdit->imageUrl))?url($CategoryEdit->imageUrl):
                                         url('upload/no-image.jpg')}}" 
                                     alt="Profile Image" id="showimage">
                             </div>

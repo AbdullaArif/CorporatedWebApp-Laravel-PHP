@@ -34,6 +34,9 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::get('category/edit/{id}','CategoryEdit')->name('category.edit');
     Route::post('category/update.form','CategoryUpdateForm')->name('category.update.form');
+
+    Route::get('category/delete/{id}','CategoryDelete')->name('category.delete');
+
 });
 
 Route::get('/dashboard', function () {

@@ -149,5 +149,22 @@ class CategoryController extends Controller
         }//endelse
     }//end func
 
+    public function CategoryDelete($id){
+        $categoryId = Categories::findOrFail($id);
+
+        if (!empty($categoryId->imageUrl) && file_exists(public_path($categoryId->imageUrl))) {
+        unlink(public_path($categoryId->imageUrl));
+    }
+
+
+        Categories::findOrFail($id)->delete();
+
+           $alertMessage =array(
+            'bildirim'=>'Upload imageless Success!!',
+            'alert-type'=> 'success'
+             );
+        return Redirect()->back()->with($alertMessage);
+
+    }//end func
 
 }//end controller

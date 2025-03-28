@@ -57,7 +57,13 @@
                                                         class="btn btn-info sm m-2"
                                                         title="Edit">
                                                         <i class="fas fa-edit"></i>
+
                                                     </a>
+                                                    <a href="{{route('category.delete',$category->id)}}"
+                                                        class="btn btn-danger sm" title="Delete"
+                                                        id="delete">
+                                                            <i class="fa fa-trash-alt"></i>
+                                                        </a>
                                                    </td>
                                                 <td>{{$category->description}}</td>
                                             </tr>
