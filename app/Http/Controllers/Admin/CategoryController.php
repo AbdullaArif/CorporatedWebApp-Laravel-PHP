@@ -153,8 +153,7 @@ class CategoryController extends Controller
         $categoryId = Categories::findOrFail($id);
 
         if (!empty($categoryId->imageUrl) && file_exists(public_path($categoryId->imageUrl))) {
-        unlink(public_path($categoryId->imageUrl));
-    }
+        unlink(public_path($categoryId->imageUrl));}
 
 
         Categories::findOrFail($id)->delete();

@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 
 
 /*
@@ -25,6 +26,8 @@ Route::controller(BannerController::class)->group(function(){
     Route::post('banner/update','BannerUpdate')->name('banner.update');
 });
 
+
+
 //Category
 Route::controller(CategoryController::class)->group(function(){
     Route::get('category/all','CategoryAll')->name('category.all');
@@ -38,6 +41,38 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('category/delete/{id}','CategoryDelete')->name('category.delete');
 
 });
+
+
+
+//Sub Category
+Route::controller(SubCategoryController::class)->group(function(){
+    Route::get('subCategory/list','SubCategoryList')->name('subCategory.list');
+
+    Route::get('category/add','CategoryAdd')->name('category.add');
+    Route::post('category/add.form','CategoryAddForm')->name('category.add.form');
+
+    Route::get('category/edit/{id}','CategoryEdit')->name('category.edit');
+    Route::post('category/update.form','CategoryUpdateForm')->name('category.update.form');
+
+    Route::get('category/delete/{id}','CategoryDelete')->name('category.delete');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');
