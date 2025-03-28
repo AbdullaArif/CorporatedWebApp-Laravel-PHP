@@ -50,7 +50,15 @@
                                             <tr>
                                                 <td>{{$count++}}</td>
                                                 <td>{{$category->categoryName}}</td>
-                                                <td><img src="{{asset($category->imageUrl)}}"style="width: 50px; height: 50px;"></td>
+                                                <td><img src="{{(!empty($category->imageUrl))?url($category->imageUrl):
+                                        url('upload/no-image.jpg')}}"style="width: 50px; height: 50px;"></td>
+                                                <td>
+                                                    <a href="{{route('category.edit',$category->id)}}"
+                                                        class="btn btn-info sm m-2"
+                                                        title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                   </td>
                                                 <td>{{$category->description}}</td>
                                             </tr>
                                            @endforeach

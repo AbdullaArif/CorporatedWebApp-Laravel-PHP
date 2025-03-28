@@ -28,8 +28,12 @@ Route::controller(BannerController::class)->group(function(){
 //Category
 Route::controller(CategoryController::class)->group(function(){
     Route::get('category/all','CategoryAll')->name('category.all');
+
     Route::get('category/add','CategoryAdd')->name('category.add');
     Route::post('category/add.form','CategoryAddForm')->name('category.add.form');
+
+    Route::get('category/edit/{id}','CategoryEdit')->name('category.edit');
+    Route::post('category/update.form','CategoryUpdateForm')->name('category.update.form');
 });
 
 Route::get('/dashboard', function () {
