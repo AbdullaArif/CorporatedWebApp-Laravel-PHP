@@ -11,33 +11,33 @@
                     <div class="card-body">
                         <h4 class="card-title">Category add</h4>
 
-                        <form method="POST" action="{{ route('category.add.form') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('category.add.form') }}" enctype="multipart/form-data" id="myForm">
                             @csrf
                             
-                            <div class="mb-3">
+                            <div class="mb-3 form-group">
                                 <label for="title" class="form-label">Category name</label>
-                                <input class="form-control" type="text" name="categoryName" id="categoryName"  placeholder="Enter category name">
+                                <input class="form-control " type="text" name="categoryName"  placeholder="Enter category name">
                                 @error('categoryName')
-                                <span class="text-danger">{{$Message}}</span>
+                                <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
-                             <div class="mb-3">
+                             <div class="mb-3" form-group>
                                 <label for="title" class="form-label">Category Key</label>
-                                <input class="form-control" type="text" name="categoryKey" id="categoryKey"  placeholder="Enter category key">
+                                <input class="form-control" type="text" name="categoryKey" placeholder="Enter category key">
                                  @error('categoryKey')
-                                <span class="text-danger">{{$Message}}</span>
+                                <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
 
-                             <div class="mb-3">
+                             <div class="mb-3" form-group>
                                 <label for="title" class="form-label">Category description</label>
-                                <input class="form-control" type="text" name="description" id="description"  placeholder="Enter category description">
+                                <input class="form-control" type="text" name="description"  placeholder="Enter category description">
                             </div>
                             <!-- Image upload area -->
-                            <div class="mb-3">
+                            <div class="mb-3" form-group>
                                 <label for="image" class="form-label">Image url</label>
-                                <input type="file" class="form-control" name="image" id="image"     class="form-control">
+                                <input type="file" class="form-control" name="image" id="image"class="form-control">
                             </div>
                             <!-- indiki image -->
                             <div class="mb-3 text-center">
@@ -69,5 +69,75 @@
         });
     });
 </script>
+
+
+
+<!-- not empty no refresh -->
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: 
+            {
+                categoryName: 
+                {
+                    required : true,
+                },
+
+                categoryKey: 
+                {
+                    required : true,
+                },
+
+                description: 
+                {
+                    required : true,
+                },
+
+                imageUrl: 
+                {
+                    required : true,
+                },
+            }, // end rules
+
+            messages :
+            {
+                categoryName: 
+                {
+                    required : 'Kategori adı giriniz',
+                },
+
+                categoryKey: 
+                {
+                    required : 'Anahtar giriniz',
+                },
+
+                description: 
+                {
+                    required : 'Açıklama giriniz',
+                },
+
+                imageUrl: 
+                {
+                    required : 'Resim giriniz',
+                },
+            }, // end message 
+
+            errorElement : 'span',
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+</script>
+<!-- not empty no refresh  -->
 
 @endsection

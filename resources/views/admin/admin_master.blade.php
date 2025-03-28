@@ -189,6 +189,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{asset('admin/assets/js/sweet.js')}}"></script>
 <!-- sweet.js *************************-->
+<!---Not empty script --->
+<script src="{{ asset('admin/assets/js/validate.min.js') }}"></script>
     </body>
 
 </html>
